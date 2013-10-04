@@ -84,7 +84,9 @@
 			}
 			
 			function findLocation() {
-				window.watchPositionID = navigator.geolocation.watchPosition(geoSuccess, geoFailure, {enableHighAccuracy: true, timeout: 4000, maximumAge: 60000 });
+				//window.watchPositionID = navigator.geolocation.watchPosition(geoSuccess, geoFailure, {enableHighAccuracy: true, timeout: 30000, maximumAge: 60000 });
+				var options = { timeout: 30000 };
+				watchID = navigator.geolocation.watchPosition(geoSuccess, geoFailure, options);
 				/*element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
                             'Longitude: ' + position.coords.longitude     + '<br />' +
                             '<hr />'      + element.innerHTML;*/
@@ -92,8 +94,8 @@
 			}
 			
 			function geoSuccess(position) {
-				navigator.geolocation.clearWatch(window.watchPositionID);
-				window.savedPosition = position;
+				//navigator.geolocation.clearWatch(window.watchPositionID);
+				//window.savedPosition = position;
 				alert('Latitude: ' + position.coords.latitude);
 			    alert('Longitude: ' + position.coords.longitude);
 			}
