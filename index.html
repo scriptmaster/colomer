@@ -75,7 +75,7 @@
 			}
 			
 			function checkStorage() {
-			    //var location = findLocation();
+			    var location = findLocation();
 			    language = window.localStorage.getItem("language");
 			    if(language == null){
 			    	window.localStorage.setItem("language", "denmark");
@@ -83,13 +83,25 @@
 	    	    language = window.localStorage.getItem("language");
 			}
 			
-			function findLocation(position) {
-			    alert('Latitude: ' + position.coords.latitude);
-			    alert('Longitude: ' + position.coords.longitude);
+			function findLocation() {
+				window.watchPositionID = navigator.geolocation.watchPosition(geoSuccess, geoFailure, {enableHighAccuracy: true, timeout: 4000, maximumAge: 60000 });
 				/*element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
                             'Longitude: ' + position.coords.longitude     + '<br />' +
                             '<hr />'      + element.innerHTML;*/
 
+			}
+			
+			function geoSuccess(position) {
+				navigator.geolocation.clearWatch(window.watchPositionID);
+				window.savedPosition = position;
+				alert('Latitude: ' + position.coords.latitude);
+			    alert('Longitude: ' + position.coords.longitude);
+			}
+
+			// Show an alert if there is a problem getting the geolocation
+			//
+			function geoFailure(err) {
+				alert(['Error:',err.code,err.message]);
 			}
 		</script>
 	</body>
