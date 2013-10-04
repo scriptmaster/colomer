@@ -85,8 +85,9 @@
 			
 			function findLocation() {
 				//window.watchPositionID = navigator.geolocation.watchPosition(geoSuccess, geoFailure, {enableHighAccuracy: true, timeout: 30000, maximumAge: 60000 });
-				var options = { timeout: 30000 };
-				watchID = navigator.geolocation.watchPosition(geoSuccess, geoFailure, options);
+				//var options = { timeout: 30000 };
+				//watchID = navigator.geolocation.watchPosition(geoSuccess, geoFailure, options);
+				navigator.geolocation.getCurrentPosition(geoSuccess, geoFailure);
 				/*element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
                             'Longitude: ' + position.coords.longitude     + '<br />' +
                             '<hr />'      + element.innerHTML;*/
