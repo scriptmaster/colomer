@@ -7,10 +7,11 @@ body {
 	margin: 0;
 }
 #menu {
-	background-color: #5a5959;
+	background: url(../images/menu_back.png) top left repeat;
+	background-size: 100% auto;
 	float: left;
 	height: 100%;
-	width: 70%;
+	width: 100%;
 }
 #menu h3 {
 	font-family: arial;
@@ -23,26 +24,26 @@ body {
 	border-bottom: solid #3d3d3d 1px;
 	text-shadow: 0 -1px 1px #333;
 }
-
 #menu ul {
 	margin: 0;
 	padding: 0;
 	width: inherit;
 }
-#menu ul li a:link,
-#menu ul li a:visited {
+#menu ul li {
+	background: url(../images/menu_1.png) top left no-repeat;
+	height:100px;
 	border-bottom: solid #333 1px;
 	box-shadow: 0 1px 0 #727272;
+}
+#menu ul li a:link,
+#menu ul li a:visited {
 	color: #fff;
-	display: block;
 	font-family: arial;
-	font-size: 14px;
-	padding: 10px 0 10px 10px;
+	margin: 3%;
 	text-decoration: none;
 	text-shadow: 0 1px 1px #000;
-	width: 70%;
+	float:left;
 }
-#menu ul li a:hover,
 #menu ul li a:active {
 	background-color: #716f6f;
 }
@@ -54,4 +55,32 @@ body {
 	background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(30,29,29,1)),color-stop(21%,rgba(56,55,55,1)));
 	color: #fff;
 	text-shadow: 0 1px 1px #000;
+}
+#page_home{
+	background: url(../images/background/background-xhdpi-portrait.png) top left no-repeat;
+	background-size: 100% auto;
+}
+.bx-wrapper .bx-viewport{
+	background: none;
+    border: 0;
+    box-shadow: none;
+}
+.ui-bar-a .ui-shadow, .ui-bar-b .ui-shadow, .ui-bar-c .ui-shadow{
+	box-shadow: none;
+	top: 1px;
+}
+.ui-btn-up-a{
+	background: none;
+	border: 0;
+}
+.ui-btn-corner-all{
+	border-radius: 0;
+}
+.ui-btn-inner{
+	border:0;
+}
+.ui-btn-hover-a {
+    background: none;
+    border: 0;
+    text-shadow: 0;
 }

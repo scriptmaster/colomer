@@ -2,20 +2,21 @@
 <html>
 	<head>
 		<title>Colomer</title> 
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta id="extViewportMeta" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 		<link rel="stylesheet" href="lib/jquery-mobile/css/jquery.mobile-1.3.1.min.css" />
-		<link rel="stylesheet" href="css/main.css" />
 		<!-- bxSlider CSS file -->
 		<link href="css/jquery.bxslider.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/main.css" />
 	</head>
 	<body>		
 		<div id="menu" style="display: none;">
-			<h3>Colomer</h3>
+			<h3><img src="images/menu_head.png"/></h3>
 			<ul>
-				<li class="active" onclick="load_page('denmark')"><a href="#page_home" class="contentLink">Home </a></li>
-				<li onclick="load_page('sweden')"><a href="#page_home" class="contentLink">About </a></li>
+				<li class="active" onclick="load_page('denmark')"><a href="#page_home" class="contentLink">Shop N’ Shop Denmark</a></li>
+				<li onclick="load_page('sweden')"><a href="#page_home" class="contentLink">Shop N’ Shop Sweden</a></li>
 			</ul>
 		</div>
 		<div id="page_splash"></div>
@@ -60,12 +61,10 @@
 						dataType   : 'json',
 						success    : function(response) {
 							//console.error(JSON.stringify(response));
-							//alert(response.data[0].url);
 							var offers = '';
 							for(var i=0; i < response.data.length; i++){
 								offers += '<li><img src="'+response.data[i].image+'" /><div class="bx-caption-text" onclick="window.open(&quot;'+response.data[i].url+'&quot;, &quot;_system&quot;);">More Info >></div></li>';
 							}
-							//$('#page_index').show();
 							$('.bxslider').html(offers);
 							setTimeout('home_page()', 4000);
 						},
@@ -73,7 +72,6 @@
 							alert('Not working!');
 						}
 				});
-				//setTimeout('home_page()', 4000);
 			}
 			
 			function checkStorage() {
@@ -82,8 +80,7 @@
 			    if(language == null){
 			    	window.localStorage.setItem("language", "denmark");
 		    	} 
-	    	    language = window.localStorage.getItem("language"); 
-	    	    //alert(language);				
+	    	    language = window.localStorage.getItem("language");
 			}
 			
 			function findLocation(position) {

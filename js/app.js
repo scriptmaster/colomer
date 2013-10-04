@@ -54,7 +54,6 @@ $(function () {
         p.siblings().removeClass('active');
         p.addClass('active');
     });
-	
 		
 });
 
@@ -94,13 +93,11 @@ function load_page(country){
 			beforeSend : function() {$.mobile.loading('show')},
 			complete   : function() {$.mobile.loading('hide')},
 			dataType   : 'json',
-			success    : function(response) {
-				//console.error(JSON.stringify(response));
+			success    : function(response) {				
 				var offers = '';
 				for(var i=0; i < response.data.length; i++){
 					offers += '<li><img src="'+response.data[i].image+'" /><div class="bx-caption-text" onclick="window.open(&quot;'+response.data[i].url+'&quot;, &quot;_system&quot;);">More Info >></div></li>';
-				}
-				//$('#page_index').show();
+				}				
 				$('.bxslider').html(offers);
 				setTimeout('home_page()', 4000);
 			},
