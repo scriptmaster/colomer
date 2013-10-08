@@ -29,21 +29,18 @@ body {
 	padding: 0;
 	width: inherit;
 }
-/*#menu ul li {
-	background: url(../images/menu_1.png) top left no-repeat;
-	height:100px;
-	
-}*/
 #menu ul li a:link,
 #menu ul li a:visited {
-	color: #fff;
-	font-family: arial;
-	margin: 3%;
-	text-decoration: none;
-	text-shadow: 0 1px 1px #000;
-	float:left;
 	border-bottom: solid #333 1px;
 	box-shadow: 0 1px 0 #727272;
+	color: #fff;
+	display: block;
+	font-family: arial;
+	font-size: 14px;
+	padding: 20px 0 10px 20px;
+	text-decoration: none;
+	text-shadow: 0 1px 1px #000;
+	width: 100%;
 }
 #menu ul li a:active {
 	background-color: #716f6f;
