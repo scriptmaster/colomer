@@ -34,7 +34,8 @@
     <preference name="android-minSdkVersion" value="7" />
     <preference name="android-installLocation" value="auto" />
 	
-	<preference name="auto-hide-splash-screen" value="false" />
+    <preference name="auto-hide-splash-screen" value="false" />
+    <icon src="icon.png" />
     <access origin="http://127.0.0.1*" />
     <access origin=".*" />
 </widget>
