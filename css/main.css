@@ -29,12 +29,11 @@ body {
 	padding: 0;
 	width: inherit;
 }
-#menu ul li {
+/*#menu ul li {
 	background: url(../images/menu_1.png) top left no-repeat;
 	height:100px;
-	border-bottom: solid #333 1px;
-	box-shadow: 0 1px 0 #727272;
-}
+	
+}*/
 #menu ul li a:link,
 #menu ul li a:visited {
 	color: #fff;
@@ -43,6 +42,8 @@ body {
 	text-decoration: none;
 	text-shadow: 0 1px 1px #000;
 	float:left;
+	border-bottom: solid #333 1px;
+	box-shadow: 0 1px 0 #727272;
 }
 #menu ul li a:active {
 	background-color: #716f6f;
