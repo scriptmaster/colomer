@@ -2,10 +2,10 @@
 <widget id="com.wiredelta.colomer_v1" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>colomer_v1</name>
     <description>
-        Colomer App_v1.
+        Colomer App
     </description>
-    <author email="vijay.k.wiredelta@gmail.com" href="http://phonegap.com">
-        CVK
+    <author email="sheriff.m@wiredelta.com" href="http://phonegap.com">
+        Sheriff M
     </author>
     <feature name="http://api.phonegap.com/1.0/device" />
 	<feature name="http://api.phonegap.com/1.0/geolocation"/>
@@ -34,8 +34,7 @@
     <preference name="android-minSdkVersion" value="7" />
     <preference name="android-installLocation" value="auto" />
 	
-    <preference name="auto-hide-splash-screen" value="false" />
+    <preference name="auto-hide-splash-screen" value="true" />
     <icon src="icon.png" />
-    <access origin="http://127.0.0.1*" />
-    <access origin=".*" />
+    <access origin="*" />
 </widget>
