@@ -1,4 +1,4 @@
-var slider;
+var slider, sliderStarted;
 
 $(document).bind("mobileinit", function () {
     $.mobile.pushStateEnabled = true;
@@ -58,7 +58,10 @@ $(function () {
 });
 
 function home_page(){
-	slider = $('.bxslider').bxSlider();
+	if(!sliderStarted) {
+		slider = $('.bxslider').bxSlider();
+		sliderStarted = true;
+	}
 	$('#page_splash').hide();
 	$('#page_home').show();
 }
