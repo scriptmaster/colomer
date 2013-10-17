@@ -59,7 +59,7 @@
 						crossDomain: true,
 						beforeSend : function() {$.mobile.loading('show')},
 						complete   : function() {$.mobile.loading('hide')},
-						dataType   : 'json',
+						dataType   : 'jsonp',
 						success    : function(response) {
 							//console.error(JSON.stringify(response));
 							var offers = '';
