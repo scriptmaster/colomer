@@ -11,7 +11,7 @@
 		<link href="css/jquery.bxslider.css" rel="stylesheet" />
 		<link rel="stylesheet" href="css/main.css" />
 	</head>
-	<body>		
+	<body>
 		<div id="menu" style="display: none;">
 			<h3><img src="images/menu_head.png"/></h3>
 			<ul>
@@ -51,7 +51,8 @@
 				    sss = 'res/screen/android/'+language+'/screen-xhdpi-portrait.png';
 				}
 				var ss_image = '<img src="'+sss+'" width="'+$(window).width()+'" height="'+$(window).height()+'" />';
-				$('#page_splash').html(ss_image);				
+				$('#page_splash').html(ss_image);
+				return;
 				$.ajax({
 						type       : "POST",
 						url        : "http://system-hostings.dev.wiredelta.com/colomer/api/offers/app_offers",
@@ -69,18 +70,30 @@
 							setTimeout('home_page()', 4000);
 						},
 						error      : function() {
-							alert('Not working!');
+							// alert('Not working!');
+							//
+							var offers = '';
+							var images = [
+								'http://system-hostings.dev.wiredelta.com/colomer/api/upload/lighthouse.jpg',
+								'http://system-hostings.dev.wiredelta.com/colomer/api/upload/tulips.jpg',
+								'http://system-hostings.dev.wiredelta.com/colomer/api/upload/penguins.jpg'
+							];
+							for(var i=0; i < images.length; i++){
+								offers += '<li><img src="'+images[i]+'" /><div class="bx-caption-text" onclick="window.open(&quot;'+images[i]+'&quot;, &quot;_system&quot;);">More Info >></div></li>';
+							}
+							$('.bxslider').html(offers);
+							setTimeout('home_page()', 4000);
 						}
 				});
 			}
 			
 			function checkStorage() {
-			    var location = findLocation();
-			    language = window.localStorage.getItem("language");
-			    if(language == null){
-			    	window.localStorage.setItem("language", "denmark");
-		    	} 
-	    	    language = window.localStorage.getItem("language");
+				var location = findLocation();
+				language = window.localStorage.getItem("language");
+				if(language == null){
+			    		window.localStorage.setItem("language", "denmark");
+		    		} 
+				language = window.localStorage.getItem("language");
 			}
 			
 			function findLocation() {
@@ -91,9 +104,8 @@
 				/*element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
                             'Longitude: ' + position.coords.longitude     + '<br />' +
                             '<hr />'      + element.innerHTML;*/
-
 			}
-			
+
 			function geoSuccess(position) {
 				//navigator.geolocation.clearWatch(window.watchPositionID);
 				//window.savedPosition = position;
