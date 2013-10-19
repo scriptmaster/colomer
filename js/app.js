@@ -58,10 +58,15 @@ $(function () {
 });
 
 function home_page(){
+	/*
 	if(!sliderStarted) {
 		slider = $('.bxslider').bxSlider();
 		sliderStarted = true;
 	}
+	*/
+
+	slider = $('.bxslider').bxSlider();
+
 	$('#page_splash').hide();
 	$('#page_home').show();
 }
@@ -92,7 +97,9 @@ function onDeviceReady() {
 }
 
 function loadOffers() {
+
 	var sss = '';
+
 	if($(window).width() < 320){
 	    sss = 'res/screen/android/'+language+'/screen-ldpi-portrait.png';
 	}else if($(window).width() >= 320 || $(window).width() < 480){
@@ -102,10 +109,12 @@ function loadOffers() {
 	}else if($(window).width() >= 720){
 	    sss = 'res/screen/android/'+language+'/screen-xhdpi-portrait.png';
 	}
-	
+
 	var ss_image = '<img src="'+sss+'" width="'+$(window).width()+'" height="'+$(window).height()+'" />';
 	$('#page_splash').html(ss_image).show();
-	
+
+	$('#content').html('<ul class="bxslider"></ul>');
+
 	$.ajax({
 		type       : "GET",
 		url        : "http://system-hostings.dev.wiredelta.com/colomer/api/offers/app_offers",
