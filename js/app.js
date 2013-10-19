@@ -208,6 +208,6 @@ function geoFailure(err) {
 	if(err.message) {
 		alert('Please enable GPS');
 	}
-	loadOffers();
+	// loadOffers();
 	// alert(['Error:',err.code,err.message]);
 }
