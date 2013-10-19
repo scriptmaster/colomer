@@ -66,7 +66,7 @@ function home_page(){
 	$('#page_home').show();
 }
 
-function load_page(country){
+function load_page(lang){
 	$.mobile.activePage.animate({
 		marginLeft: "0px",
 	}, 300, function () {
@@ -74,41 +74,11 @@ function load_page(country){
 		$('#menu').hide();
 	});
 	slider.destroySlider();
-	$('#page_home').hide();	
-	window.localStorage.setItem("language", country);	
-	var sss = '';
-	if($(window).width() < 320){
-		sss = 'res/screen/android/'+country+'/screen-ldpi-portrait.png';
-	}else if($(window).width() >= 320 || $(window).width() < 480){
-		sss = 'res/screen/android/'+country+'/screen-mdpi-portrait.png';
-	}else if($(window).width() >= 480 || $(window).width() < 720){
-		sss = 'res/screen/android/'+country+'/screen-hdpi-portrait.png';
-	}else if($(window).width() >= 720){
-		sss = 'res/screen/android/'+country+'/screen-xhdpi-portrait.png';
-	}
-	var ss_image = '<img src="'+sss+'" width="'+$(window).width()+'" height="'+$(window).height()+'" />';
-	$('#page_splash').html(ss_image);
-	$('#page_splash').show();
-	$.ajax({
-			type       : "GET",
-			url        : "http://system-hostings.dev.wiredelta.com/colomer/api/offers/app_offers",
-			crossDomain: true,
-			beforeSend : function() {$.mobile.loading('show')},
-			complete   : function() {$.mobile.loading('hide')},
-			dataType   : 'json',
-			success    : function(response) {				
-				var offers = '';
-				for(var i=0; i < response.data.length; i++){
-					//offers += '<li><img src="'+response.data[i].image+'" /><div class="bx-caption-text" onclick="window.open(&quot;'+response.data[i].url+'&quot;, &quot;_system&quot;);">More Info >></div></li>';
-					offers += '<li onclick="window.open(\''+response.data[i].url+'\', \'_system\');"><img src="'+response.data[i].image+'" /></li>';
-				}
-				$('.bxslider').html(offers);
-				setTimeout('home_page()', 4000);
-			},
-			error      : function() {
-				alert('Not working!');
-			}
-	});
+	$('#page_home').hide();
+	window.localStorage.setItem("language", lang);
+	language = lang;
+
+	loadOffers();
 }
 
 
@@ -118,6 +88,10 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
 	checkStorage();
+	loadOffers();
+}
+
+function loadOffers() {
 	var sss = '';
 	if($(window).width() < 320){
 	    sss = 'res/screen/android/'+language+'/screen-ldpi-portrait.png';
@@ -130,7 +104,7 @@ function onDeviceReady() {
 	}
 	
 	var ss_image = '<img src="'+sss+'" width="'+$(window).width()+'" height="'+$(window).height()+'" />';
-	$('#page_splash').html(ss_image);
+	$('#page_splash').html(ss_image).show();
 	
 	$.ajax({
 		type       : "GET",
