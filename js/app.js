@@ -71,7 +71,7 @@ function home_page(){
 	$('#page_home').show();
 }
 
-function load_page(lang){
+function load_page(country){
 	$.mobile.activePage.animate({
 		marginLeft: "0px",
 	}, 300, function () {
@@ -80,8 +80,8 @@ function load_page(lang){
 	});
 	slider.destroySlider();
 	$('#page_home').hide();
-	window.localStorage.setItem("language", lang);
-	language = lang;
+	window.localStorage.setItem("country", country);
+	language = country;
 
 	loadOffers();
 }
@@ -153,11 +153,11 @@ function loadOffers() {
 
 function checkStorage() {
 	var location = findLocation();
-	language = window.localStorage.getItem("language");
+	language = window.localStorage.getItem("country");
 	if(language == null){
-    		window.localStorage.setItem("language", "denmark");
+    		window.localStorage.setItem("country", "denmark");
     	} 
-	language = window.localStorage.getItem("language");
+	language = window.localStorage.getItem("country");
 }
 
 function findLocation() {
@@ -171,6 +171,15 @@ function findLocation() {
 }
 
 function geoSuccess(position) {
+	alert([position.coords.latitude, position.coords.longitude]);
+	$.get('http://ws.geonames.org/countryCode?lat=49.03&lng=10.2', function(data){
+		alert('[49.03,10.2]='+data);
+	});
+	$.get('http://ws.geonames.org/countryCode?lat='+position.coords.latitude+'&lng='+position.coords.longitude,
+		function(data){
+			alert('CountryCode='+data);
+			if(data == 'DK') localStorage.setItem("country", "denmark");
+		});
 	//navigator.geolocation.clearWatch(window.watchPositionID);
 	//window.savedPosition = position;
 	//alert('Latitude: ' + position.coords.latitude);
