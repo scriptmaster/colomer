@@ -151,10 +151,10 @@ function onDeviceReady() {
 		error      : function() {
 			var offers = '';
 			var images = [
-				'http://system-hostings.dev.wiredelta.com/colomer/api/images/offers/pic1.png',
-				'http://system-hostings.dev.wiredelta.com/colomer/api/images/offers/pic2.png',
-				'http://system-hostings.dev.wiredelta.com/colomer/api/images/offers/pic3.png',
-				'http://system-hostings.dev.wiredelta.com/colomer/api/images/offers/pic4.png'
+				'images/offers/pic1.png',
+				'images/offers/pic2.png',
+				'images/offers/pic3.png',
+				'images/offers/pic4.png'
 			];
 			for(var i=0; i < images.length; i++){
 				offers += '<li><img src="'+images[i]+'" /><div class="bx-caption-text" onclick="window.open(&quot;'+images[i]+'&quot;, &quot;_system&quot;);">More Info >></div></li>';
