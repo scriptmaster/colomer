@@ -71,7 +71,7 @@ function home_page(){
 	$('#page_home').show();
 }
 
-function load_page(country){
+function load_page(lang){
 	$.mobile.activePage.animate({
 		marginLeft: "0px",
 	}, 300, function () {
@@ -80,8 +80,8 @@ function load_page(country){
 	});
 	slider.destroySlider();
 	$('#page_home').hide();
-	window.localStorage.setItem("country", country);
-	language = country;
+	// window.localStorage.setItem("language", lang);
+	language = lang;
 
 	loadOffers();
 }
@@ -114,6 +114,19 @@ function loadOffers() {
 	$('#page_splash').html(ss_image).show();
 
 	$('#content').html('<ul class="bxslider"></ul>');
+
+	/*
+	$.getJSON('http://system-hostings.dev.wiredelta.com/colomer/api/offers/app_offers', function(data){
+		var offers = '';
+		for(var i=0; i < data.length; i++){
+			offers += '<li onclick="window.open(\''+data[i].url+'\', \'_system\');"><img src="'+data[i].image+'" /></li>';
+		}
+		$('.bxslider').html(offers);
+		setTimeout('home_page()', 4000);
+	});
+
+	return;
+	*/
 
 	$.ajax({
 		type       : "GET",
@@ -153,11 +166,11 @@ function loadOffers() {
 
 function checkStorage() {
 	var location = findLocation();
-	language = window.localStorage.getItem("country");
+	language = window.localStorage.getItem("language");
 	if(language == null){
-    		window.localStorage.setItem("country", "denmark");
-    	} 
-	language = window.localStorage.getItem("country");
+		language = "denmark";
+    		window.localStorage.setItem("language", language);
+    	}
 }
 
 function findLocation() {
@@ -171,14 +184,17 @@ function findLocation() {
 }
 
 function geoSuccess(position) {
-	alert([position.coords.latitude, position.coords.longitude]);
-	$.get('http://ws.geonames.org/countryCode?lat=49.03&lng=10.2', function(data){
-		alert('[49.03,10.2]='+data);
-	});
+	//alert([position.coords.latitude, position.coords.longitude]);
+	//$.get('http://ws.geonames.org/countryCode?lat=49.03&lng=10.2', function(data){
+	//	alert('[49.03,10.2]='+data);
+	//});
 	$.get('http://ws.geonames.org/countryCode?lat='+position.coords.latitude+'&lng='+position.coords.longitude,
 		function(data){
-			alert('CountryCode='+data);
-			if(data == 'DK') localStorage.setItem("country", "denmark");
+			// alert('CountryCode='+data);
+			if(data == 'DK') {
+				window.localStorage.setItem("language", "denmark");
+			}
+			//loadOffers();
 		});
 	//navigator.geolocation.clearWatch(window.watchPositionID);
 	//window.savedPosition = position;
@@ -192,5 +208,6 @@ function geoFailure(err) {
 	if(err.message) {
 		alert('Please enable GPS');
 	}
+	loadOffers();
 	// alert(['Error:',err.code,err.message]);
 }
