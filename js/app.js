@@ -197,5 +197,8 @@ function geoSuccess(position) {
 // Show an alert if there is a problem getting the geolocation
 //
 function geoFailure(err) {
-	alert(['Error:',err.code,err.message]);
+	if(err.message) {
+		alert('Please enable GPS');
+	}
+	// alert(['Error:',err.code,err.message]);
 }
