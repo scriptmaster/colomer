@@ -1,6 +1,6 @@
-body {
+html, body {
+	background: #5a5959 url(../images/menuBg.gif) top left repeat-y !important;
 	-webkit-text-size-adjust: none;
-	background: #5a5959 url(../images/menuBg.gif) top left repeat-y;
 }
 .pages h1 {
 	font-size: 1.2em;
