@@ -88,9 +88,9 @@ function load_page(country){
 	}
 	var ss_image = '<img src="'+sss+'" width="'+$(window).width()+'" height="'+$(window).height()+'" />';
 	$('#page_splash').html(ss_image);
-	$('#page_splash').show();	
+	$('#page_splash').show();
 	$.ajax({
-			type       : "POST",
+			type       : "GET",
 			url        : "http://system-hostings.dev.wiredelta.com/colomer/api/offers/app_offers",
 			crossDomain: true,
 			beforeSend : function() {$.mobile.loading('show')},
@@ -99,8 +99,9 @@ function load_page(country){
 			success    : function(response) {				
 				var offers = '';
 				for(var i=0; i < response.data.length; i++){
-					offers += '<li><img src="'+response.data[i].image+'" /><div class="bx-caption-text" onclick="window.open(&quot;'+response.data[i].url+'&quot;, &quot;_system&quot;);">More Info >></div></li>';
-				}				
+					//offers += '<li><img src="'+response.data[i].image+'" /><div class="bx-caption-text" onclick="window.open(&quot;'+response.data[i].url+'&quot;, &quot;_system&quot;);">More Info >></div></li>';
+					offers += '<li onclick="window.open(\''+response.data[i].url+'\', \'_system\');"><img src="'+response.data[i].image+'" /></li>';
+				}
 				$('.bxslider').html(offers);
 				setTimeout('home_page()', 4000);
 			},
@@ -109,7 +110,6 @@ function load_page(country){
 			}
 	});
 }
-
 
 
 var language;
@@ -133,7 +133,7 @@ function onDeviceReady() {
 	$('#page_splash').html(ss_image);
 	
 	$.ajax({
-		type       : "POST",
+		type       : "GET",
 		url        : "http://system-hostings.dev.wiredelta.com/colomer/api/offers/app_offers",
 		crossDomain: true,
 		beforeSend : function() {$.mobile.loading('show')},
@@ -143,7 +143,8 @@ function onDeviceReady() {
 			//console.error(JSON.stringify(response));
 			var offers = '';
 			for(var i=0; i < response.data.length; i++){
-				offers += '<li><img src="'+response.data[i].image+'" /><div class="bx-caption-text" onclick="window.open(&quot;'+response.data[i].url+'&quot;, &quot;_system&quot;);">More Info >></div></li>';
+				// offers += '<li><img src="'+response.data[i].image+'" /><div class="bx-caption-text" onclick="window.open(&quot;'+response.data[i].url+'&quot;, &quot;_system&quot;);">More Info >></div></li>';
+				offers += '<li onclick="window.open(\''+response.data[i].url+'\', \'_system\');"><img src="'+response.data[i].image+'" /></li>';
 			}
 			$('.bxslider').html(offers);
 			setTimeout('home_page()', 4000);
@@ -156,9 +157,11 @@ function onDeviceReady() {
 				'images/offers/pic3.png',
 				'images/offers/pic4.png'
 			];
+
 			for(var i=0; i < images.length; i++){
-				offers += '<li><img src="'+images[i]+'" /><div class="bx-caption-text" onclick="window.open(&quot;'+images[i]+'&quot;, &quot;_system&quot;);">More Info >></div></li>';
+				offers += '<li><img src="'+images[i]+'" /></li>';
 			}
+
 			$('.bxslider').html(offers);
 			setTimeout('home_page()', 4000);
 		}
