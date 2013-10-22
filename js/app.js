@@ -149,7 +149,7 @@ function loadOffers() {
 			var offers = '';
 			var images = [
 				'images/offers/pic1.png',
-				'images/offers/pic2.png',
+				'images/offers/nopic2.png',
 				'images/offers/pic3.png',
 				'images/offers/pic4.png'
 			];
