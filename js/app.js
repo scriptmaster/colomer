@@ -206,7 +206,8 @@ function geoSuccess(position) {
 //
 function geoFailure(err) {
 	if(err.message) {
-		alert('Please enable GPS');
+		// alert('Please enable GPS');
+		window.localStorage.setItem("language", "denmark");
 	}
 	// loadOffers();
 	// alert(['Error:',err.code,err.message]);
