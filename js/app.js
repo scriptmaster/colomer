@@ -148,10 +148,10 @@ function loadOffers() {
 		error      : function() {
 			var offers = '';
 			var images = [
-				'images/offers/pic1.png',
-				'images/offers/nopic2.png',
-				'images/offers/pic3.png',
-				'images/offers/pic4.png'
+				'images/offers/pic1.jpg',
+				'images/offers/pic2.jpg',
+				'images/offers/pic3.jpg',
+				'images/offers/pic4.jpg'
 			];
 
 			for(var i=0; i < images.length; i++){
