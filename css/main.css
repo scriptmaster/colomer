@@ -85,3 +85,6 @@ html, body {
 .bxslider {
 	background-color: #000;
 }
+.bxslider img {
+	border: none;
+}
