@@ -122,18 +122,16 @@ function loadOffers() {
 
 	$('#content').html('<ul class="bxslider"></ul>');
 
-	/*
+	
 	$.getJSON('http://system-hostings.dev.wiredelta.com/colomer/api/offers/app_offers', function(data){
 		var offers = '';
 		for(var i=0; i < data.length; i++){
 			offers += '<li onclick="window.open(\''+data[i].url+'\', \'_system\');"><img src="'+data[i].image+'" /></li>';
 		}
-		$('.bxslider').html(offers);
-		setTimeout('home_page()', 4000);
+		alert(offers);
+		// $('.bxslider').html(offers);
+		// setTimeout('home_page()', 4000);
 	});
-
-	return;
-	*/
 
 	$.ajax({
 		type       : "GET",
