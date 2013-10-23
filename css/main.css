@@ -97,7 +97,9 @@ color: #e30056;
 padding-top: 10px;
 background-color: #19191b;
 }
-
+*{
+	text-shadow: none;
+}
 /*#phoneno1{
 	position: relative;
 	left: 28px;
