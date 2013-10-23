@@ -126,4 +126,15 @@ background-color: #19191b;
 #page_contact{
 	background:#19191b;
 	padding:5px;
+	color: #fff;
+}
+
+#page_contact{
+	color: #fff;
+}
+#page_contact h2{
+	color: #fff;
+}
+#page_contact table tr td{
+	color: #fff;
 }
