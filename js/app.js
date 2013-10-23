@@ -86,6 +86,11 @@ function load_page(lang){
 	loadOffers();
 }
 
+function load_contact_page(){
+	$('#page_home').hide();
+ 	$('#page_contact').show();
+}
+
 
 var language;
 
