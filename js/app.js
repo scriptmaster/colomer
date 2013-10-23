@@ -50,9 +50,7 @@ $(function () {
 
     // Menu behaviour
     $("#menu li a").click(function () {
-        var p = $(this).parent();
-        p.siblings().removeClass('active');
-        p.addClass('active');
+        $(this).parent().addClass('active').siblings().removeClass('active');
     });
 
 });
@@ -72,7 +70,7 @@ function load_page(lang){
 		$('#menu').hide();
 	});
 	slider.destroySlider();
-	$('#page_home').hide();
+	$('#page_home,#page_contact').hide();
 	// window.localStorage.setItem("language", lang);
 	language = lang;
 
