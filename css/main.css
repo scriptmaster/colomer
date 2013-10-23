@@ -96,25 +96,25 @@ background-color: #19191b;
 }
 
 #phoneno1{
-	position: absolute;
+	position: relative;
 	left: 20px;
 	top: 50px;
 }
 
 #phoneno2{
-	position: absolute;
+	position: relative;
 	left: 20px;
 	top: 80px;
 }
 
 #email1{
-	position: absolute;
+	position: relative;
 	left: 20px;
 	top: 60px;	
 }
 
 #email2{
-	position: absolute;
+	position: relative;
 	left: 20px;
 	top: 90px;
 }
