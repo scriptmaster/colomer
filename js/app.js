@@ -88,7 +88,9 @@ function load_page(lang){
 
 function load_contact_page(){
 	$('#page_home').hide();
+	$('#menu').hide();
  	$('#page_contact').show();
+ 	
 }
 
 
