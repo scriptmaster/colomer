@@ -58,13 +58,6 @@ $(function () {
 });
 
 function home_page(){
-	/*
-	if(!sliderStarted) {
-		slider = $('.bxslider').bxSlider();
-		sliderStarted = true;
-	}
-	*/
-
 	slider = $('.bxslider').bxSlider();
 
 	$('#page_splash').hide();
@@ -127,8 +120,8 @@ function loadOffers() {
 		for(var i=0; i < resp.data.length; i++){
 			offers += '<li onclick="window.open(\''+resp.data[i].url+'\', \'_system\');"><img src="'+resp.data[i].image+'" /></li>';
 		}
-		alert(offers);
-		alert(JSON.stringify(data));
+		// alert(offers);
+		// alert(JSON.stringify(data));
 		$('.bxslider').html(offers);
 		setTimeout('home_page()', 2000);
 	})
