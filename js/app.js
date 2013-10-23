@@ -36,7 +36,7 @@ $(function () {
         }
         return false;
     };
- 
+
     // Show/hide the menu
     $("a.showMenu").click(toggle);
     //$('#menu, .pages').on("swipeleft", hide);
@@ -127,11 +127,27 @@ function loadOffers() {
 		for(var i=0; i < resp.data.length; i++){
 			offers += '<li onclick="window.open(\''+resp.data[i].url+'\', \'_system\');"><img src="'+resp.data[i].image+'" /></li>';
 		}
-		// alert(offers);
-		// alert(JSON.stringify(data));
+		alert(offers);
+		alert(JSON.stringify(data));
 		$('.bxslider').html(offers);
 		setTimeout('home_page()', 2000);
-	});
+	})
+	.error(function() {
+		var offers = '';
+		var images = [
+			'images/offers/pic1.jpg',
+			'images/offers/pic2.jpg',
+			'images/offers/pic3.jpg',
+			'images/offers/pic4.jpg'
+		];
+
+		for(var i=0; i < images.length; i++){
+			offers += '<li><img src="'+images[i]+'" /></li>';
+		}
+
+		$('.bxslider').html(offers);
+		setTimeout('home_page()', 4000);
+	})
 
 	/*
 	$.ajax({
