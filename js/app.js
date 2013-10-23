@@ -218,3 +218,7 @@ function geoFailure(err) {
 	// loadOffers();
 	// alert(['Error:',err.code,err.message]);
 }
+
+function redirection(){
+	$(#menu).show();
+}
