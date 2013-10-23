@@ -122,18 +122,18 @@ function loadOffers() {
 
 	$('#content').html('<ul class="bxslider"></ul>');
 
-	
-	$.getJSON('http://system-hostings.dev.wiredelta.com/colomer/api/offers/app_offers', function(data){
+	$.getJSON('http://system-hostings.dev.wiredelta.com/colomer/api/offers/app_offers', function(resp){
 		var offers = '';
-		for(var i=0; i < data.data.length; i++){
-			offers += '<li onclick="window.open(\''+data.data[i].url+'\', \'_system\');"><img src="'+data.data[i].image+'" /></li>';
+		for(var i=0; i < resp.data.length; i++){
+			offers += '<li onclick="window.open(\''+resp.data[i].url+'\', \'_system\');"><img src="'+resp.data[i].image+'" /></li>';
 		}
-		alert(offers);
-		alert(JSON.stringify(data));
-		// $('.bxslider').html(offers);
-		// setTimeout('home_page()', 4000);
+		// alert(offers);
+		// alert(JSON.stringify(data));
+		$('.bxslider').html(offers);
+		setTimeout('home_page()', 2000);
 	});
 
+	/*
 	$.ajax({
 		type       : "GET",
 		url        : "http://system-hostings.dev.wiredelta.com/colomer/api/offers/app_offers",
@@ -168,6 +168,7 @@ function loadOffers() {
 			setTimeout('home_page()', 4000);
 		}
 	});
+	*/
 }
 
 function checkStorage() {
@@ -217,8 +218,4 @@ function geoFailure(err) {
 	}
 	// loadOffers();
 	// alert(['Error:',err.code,err.message]);
-}
-
-function redirection(){
-	$(#menu).show();
 }
