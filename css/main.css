@@ -1,5 +1,5 @@
 html, body {
-	/*background: #5a5959 url(../images/menuBg.gif) top left repeat-y !important;*/
+	background: #5a5959 url(../images/menuBg.gif) top left repeat-y !important;
 	-webkit-text-size-adjust: none;
 	background:#19191b;
 }
@@ -47,7 +47,7 @@ html, body {
 	background-color: #716f6f;
 }
 .ui-body-c {
-	background-color: #fff;
+	background-color:#19191b;
 	line-height: 18px;
 }
 .active {
