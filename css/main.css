@@ -96,7 +96,7 @@ background-color: #19191b;
 }
 
 #phoneno1{
-	position: absolute;
+	position: relative;
 	left: 28px;
 	top: 150px;
 }
