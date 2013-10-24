@@ -13,7 +13,7 @@ html, body {
 #menu {
 	background: url(../images/menu_back.png) top left repeat;
 	background-size: 100% auto;
-	float: left;
+	float: left
 	height: 100%;
 	width: 100%;
 }
@@ -150,3 +150,6 @@ background-color: #19191b;
 	margin-left: 5px;
 }
 
+#header1 {
+	height: 35px;		
+}
