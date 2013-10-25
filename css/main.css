@@ -156,6 +156,6 @@ background-color: #19191b;
 }
 .bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto {
 position: absolute;
-bottom: -8px;
+bottom: 0px;
 width: 100%;
 }
