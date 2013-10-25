@@ -94,6 +94,7 @@ html, body {
 .bxslider img {
 	border: none;
 	margin-right:10px;
+	width: 400px;
 }
 #contactpage{
 color: #e30056; 
