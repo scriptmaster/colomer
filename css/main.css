@@ -1,7 +1,7 @@
 html, body {
 	background: #5a5959 url(../images/menuBg.gif) top left repeat-y !important;
 	-webkit-text-size-adjust: none;
-#19191b;
+	#19191b;
 }
 .pages h1 {
 	font-size: 1.2em;
@@ -153,4 +153,9 @@ background-color: #19191b;
 
 #header1 {
 	height: 35px !important;	
+}
+.bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto {
+position: absolute;
+bottom: -15px;
+width: 100%;
 }
