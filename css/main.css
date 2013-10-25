@@ -93,8 +93,7 @@ html, body {
 }
 .bxslider img {
 	border: none;
-	margin-right:10px;
-	width: 400px;
+	padding-right:10px;
 }
 #contactpage{
 color: #e30056; 
