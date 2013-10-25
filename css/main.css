@@ -8,7 +8,7 @@ html, body {
 	margin: 0;
 }
 .pages img {
-	 background: #19191b;	
+	 /*background: #19191b;*/	
 }
 #menu {
 	background: url(../images/menu_back.png) top left repeat;
