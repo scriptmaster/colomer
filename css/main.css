@@ -93,6 +93,8 @@ html, body {
 }
 .bxslider img {
 	border: none;
+	width:85%;
+	margin: auto;
 	/*padding-right:10px*/
 }
 #contactpage{
