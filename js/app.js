@@ -36,7 +36,7 @@ $(function () {
         }
         return false;
     };
- 
+
     // Show/hide the menu
     $("a.showMenu").click(toggle);
     //$('#menu, .pages').on("swipeleft", hide);
@@ -50,21 +50,12 @@ $(function () {
 
     // Menu behaviour
     $("#menu li a").click(function () {
-        var p = $(this).parent();
-        p.siblings().removeClass('active');
-        p.addClass('active');
+        $(this).parent().addClass('active').siblings().removeClass('active');
     });
 
 });
 
 function home_page(){
-	/*
-	if(!sliderStarted) {
-		slider = $('.bxslider').bxSlider();
-		sliderStarted = true;
-	}
-	*/
-
 	slider = $('.bxslider').bxSlider();
 
 	$('#page_splash').hide();
@@ -79,11 +70,18 @@ function load_page(lang){
 		$('#menu').hide();
 	});
 	slider.destroySlider();
-	$('#page_home').hide();
+	$('#page_home,#page_contact').hide();
 	// window.localStorage.setItem("language", lang);
 	language = lang;
 
 	loadOffers();
+}
+
+function load_contact_page(){
+	$('#page_home').hide();
+	$('#menu').hide();
+ 	$('#page_contact').show();
+ 	
 }
 
 
@@ -115,19 +113,34 @@ function loadOffers() {
 
 	$('#content').html('<ul class="bxslider"></ul>');
 
-	/*
-	$.getJSON('http://system-hostings.dev.wiredelta.com/colomer/api/offers/app_offers', function(data){
+	$.getJSON('http://system-hostings.dev.wiredelta.com/colomer/api/offers/app_offers', function(resp){
 		var offers = '';
-		for(var i=0; i < data.length; i++){
-			offers += '<li onclick="window.open(\''+data[i].url+'\', \'_system\');"><img src="'+data[i].image+'" /></li>';
+		for(var i=0; i < resp.data.length; i++){
+			offers += '<li onclick="window.open(\''+resp.data[i].url+'\', \'_system\');"><img src="'+resp.data[i].image+'" /></li>';
 		}
+		// alert(offers);
+		// alert(JSON.stringify(data));
+		$('.bxslider').html(offers);
+		setTimeout('home_page()', 2000);
+	})
+	.error(function() {
+		var offers = '';
+		var images = [
+			'images/offers/pic1.jpg',
+			'images/offers/pic2.jpg',
+			'images/offers/pic3.jpg',
+			'images/offers/pic4.jpg'
+		];
+
+		for(var i=0; i < images.length; i++){
+			offers += '<li><img src="'+images[i]+'" /></li>';
+		}
+
 		$('.bxslider').html(offers);
 		setTimeout('home_page()', 4000);
-	});
+	})
 
-	return;
-	*/
-
+	/*
 	$.ajax({
 		type       : "GET",
 		url        : "http://system-hostings.dev.wiredelta.com/colomer/api/offers/app_offers",
@@ -148,10 +161,10 @@ function loadOffers() {
 		error      : function() {
 			var offers = '';
 			var images = [
-				'images/offers/pic1.png',
-				'images/offers/pic2.png',
-				'images/offers/pic3.png',
-				'images/offers/pic4.png'
+				'images/offers/pic1.jpg',
+				'images/offers/pic2.jpg',
+				'images/offers/pic3.jpg',
+				'images/offers/pic4.jpg'
 			];
 
 			for(var i=0; i < images.length; i++){
@@ -162,6 +175,7 @@ function loadOffers() {
 			setTimeout('home_page()', 4000);
 		}
 	});
+	*/
 }
 
 function checkStorage() {
@@ -206,7 +220,8 @@ function geoSuccess(position) {
 //
 function geoFailure(err) {
 	if(err.message) {
-		alert('Please enable GPS');
+		// alert('Please enable GPS');
+		window.localStorage.setItem("language", "denmark");
 	}
 	// loadOffers();
 	// alert(['Error:',err.code,err.message]);
