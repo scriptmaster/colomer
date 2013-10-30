@@ -35,7 +35,7 @@
 	box-shadow: 0 0 5px #ccc;
 	border: solid #fff 5px;
 	left: -5px;
-	background: #fff;
+	background: #000;
 }
 
 .bx-wrapper .bx-pager,
@@ -49,7 +49,7 @@
 
 .bx-wrapper .bx-loading {
 	min-height: 50px;
-	background: url(images/bx_loader.gif) center center no-repeat #fff;
+	background: url(images/bx_loader.gif) center center no-repeat #000;
 	height: 100%;
 	width: 100%;
 	position: absolute;
@@ -183,7 +183,7 @@
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	background: #666\9;
+	background: #666;
 	background: rgba(80, 80, 80, 0.75);
 	width: 100%;
 }

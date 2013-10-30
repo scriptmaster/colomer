@@ -1,15 +1,19 @@
 html, body {
 	background: #5a5959 url(../images/menuBg.gif) top left repeat-y !important;
 	-webkit-text-size-adjust: none;
+	#19191b;
 }
 .pages h1 {
 	font-size: 1.2em;
 	margin: 0;
 }
+.pages img {
+	 /*background: #19191b;*/	
+}
 #menu {
 	background: url(../images/menu_back.png) top left repeat;
 	background-size: 100% auto;
-	float: left;
+	float: left
 	height: 100%;
 	width: 100%;
 }
@@ -23,6 +27,7 @@ html, body {
 	border-top: solid #6b6b6b 1px;
 	border-bottom: solid #3d3d3d 1px;
 	text-shadow: 0 -1px 1px #333;
+	height: 35px;
 }
 #menu ul {
 	margin: 0;
@@ -46,7 +51,7 @@ html, body {
 	background-color: #716f6f;
 }
 .ui-body-c {
-	background-color: #fff;
+	background-color:#19191b;
 	line-height: 18px;
 }
 .active {
@@ -57,6 +62,7 @@ html, body {
 #page_home{
 	background: url(../images/background/background-xhdpi-portrait.png) top left no-repeat;
 	background-size: 100% auto;
+
 }
 .bx-wrapper .bx-viewport{
 	background: none;
@@ -81,4 +87,75 @@ html, body {
     background: none;
     border: 0;
     text-shadow: 0;
+}
+.bxslider {
+	background-color: #000;
+}
+.bxslider img {
+	border: none;
+	width:85%;
+	margin: auto;
+	/*padding-right:10px*/
+}
+#contactpage{
+color: #e30056; 
+padding-top: 13px;
+background-color: #19191b;
+}
+*{
+	text-shadow: none;
+}
+/*#phoneno1{
+	position: relative;
+	left: 28px;
+	top: 50px;
+}
+
+#phoneno2{
+	position: absolute;
+	left: 40px;
+	top: 300px;
+}
+
+#email1{
+	position: absolute;
+	left: 40px;
+	top: 300px;	
+}
+
+#email2{
+	position: relative;
+	left: 40px;
+	top: 300px;
+}*/
+#page_contact{
+	background:#19191b;
+	padding:5px;
+	color: #fff;
+}
+
+#page_contact{
+	color: #fff;
+}
+#page_contact h2{
+	color: #fff;
+}
+#page_contact table tr td{
+	color: #fff;
+}
+.menustyle{
+	
+/*	padding-bottom: 3px*/
+}
+.menustyle_contact{
+	margin-left: 8px;
+}
+
+#header1 {
+	height: 43px !important;	
+}
+.bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto {
+position: absolute;
+bottom: 5px;
+width: 100%;
 }
